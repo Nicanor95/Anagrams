@@ -16,7 +16,7 @@ for i, word in enumerate(sys.argv[1:], start=1):
 	# We make a list of all iterations, may take some time depending on length,
 	# enchant.suggest(word) doesn't cut it.
 	# For each permutation, check if it's an english word and save in words.
-	words = filter(dictionary.check, [''.join(p) for p in permutations(word)])
+	words = filter(dictionary.check, map(lambda x: "".join(x), permutations(word)))
 
 	# Print out results
 	print("For the string {} we found the following results:".format(word))
